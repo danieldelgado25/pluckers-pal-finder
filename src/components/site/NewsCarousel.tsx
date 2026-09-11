@@ -27,7 +27,7 @@ export function NewsCarousel({ items }: { items: NewsItem[] }) {
       onMouseLeave={() => setPaused(false)}
     >
       <p className="text-xs font-bold tracking-widest uppercase text-primary">
-        {new Date(item.date).toLocaleDateString(lang === "es" ? "es-MX" : "en-US", {
+        {item.id === "n1" ? item.date : new Date(item.date).toLocaleDateString(lang === "es" ? "es-MX" : "en-US", {
           month: "long",
           day: "numeric",
           year: "numeric",
