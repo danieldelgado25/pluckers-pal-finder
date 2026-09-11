@@ -5,6 +5,7 @@ import { useLang } from "@/lib/i18n";
 import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
 import { cn } from "@/lib/utils";
+import logoAsset from "@/assets/pluckers-logo.png.asset.json";
 
 const links = [
   { to: "/menu", key: "nav.menu" },
@@ -30,13 +31,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
       <div className="container-x grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-3 lg:flex lg:justify-between">
-        <Link to="/" className="flex min-w-0 items-center gap-2">
-          <span className="grid size-9 shrink-0 place-items-center rounded-md bg-primary font-display text-xl text-primary-foreground">
-            P
-          </span>
-          <span className="truncate font-display text-2xl leading-none tracking-wide">
-            Pluckers <span className="text-primary">Wing Bar</span>
-          </span>
+        <Link to="/" className="flex min-w-0 items-center" aria-label="Pluckers Wing Bar — home">
+          <img
+            src={logoAsset.url}
+            alt="Pluckers Wing Bar"
+            className="h-11 w-auto shrink-0 rounded-full"
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">

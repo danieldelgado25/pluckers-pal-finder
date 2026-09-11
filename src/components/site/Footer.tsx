@@ -3,6 +3,7 @@ import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
+import logoAsset from "@/assets/pluckers-logo.png.asset.json";
 
 export function Footer() {
   const { t } = useLang();
@@ -11,9 +12,7 @@ export function Footer() {
     <footer className="mt-24 border-t border-border bg-surface">
       <div className="container-x grid gap-10 py-14 md:grid-cols-4">
         <div>
-          <p className="font-display text-3xl leading-none">
-            Pluckers <span className="text-primary">Wing Bar</span>
-          </p>
+          <img src={logoAsset.url} alt="Pluckers Wing Bar" className="w-44 rounded-full" />
           <p className="mt-3 max-w-xs text-sm text-muted-foreground">{t("home.tagline")}</p>
           <p className="mt-4 max-w-xs font-display text-2xl leading-tight text-foreground">
             {t("brand.slogan")}
