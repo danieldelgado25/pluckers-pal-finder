@@ -15,8 +15,10 @@ export function NewsCarousel({ items }: { items: NewsItem[] }) {
     return () => window.clearInterval(id);
   }, [paused, items.length]);
 
-  const item = items[i];
+  const item = items[i] ?? items[0];
   const go = (d: number) => setI((v) => (v + d + items.length) % items.length);
+
+  if (!item) return null;
 
   return (
     <div
