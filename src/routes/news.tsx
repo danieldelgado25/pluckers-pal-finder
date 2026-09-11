@@ -66,6 +66,7 @@ function NewsPage() {
                   month: "long",
                   day: "numeric",
                   year: "numeric",
+                  timeZone: "UTC",
                 })}
               </p>
               <h2 className="mt-2 font-display text-2xl leading-tight">
