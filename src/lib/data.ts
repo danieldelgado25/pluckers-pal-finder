@@ -12,7 +12,7 @@ export type Loc = {
 export const locations: Loc[] = [
   { id: "austin-downtown", city: "Austin", name: "Downtown", region: "Central Texas", address: "2222 Rio Grande St, Austin, TX", phone: "(512) 469-9464", hours: "11am – 12am" },
   { id: "austin-arboretum", city: "Austin", name: "Arboretum", region: "Central Texas", address: "9070 Research Blvd, Austin, TX", phone: "(512) 454-9464", hours: "11am – 11pm" },
-  { id: "round-rock", city: "Round Rock", name: "Round Rock", region: "Central Texas", address: "2400 S IH-35, Round Rock, TX", phone: "(512) held", hours: "11am – 11pm" },
+  { id: "round-rock", city: "Round Rock", name: "Round Rock", region: "Central Texas", address: "2400 S IH-35, Round Rock, TX", phone: "(512) 244-9464", hours: "11am – 11pm" },
   { id: "san-marcos", city: "San Marcos", name: "San Marcos", region: "Central Texas", address: "105 N LBJ Dr, San Marcos, TX", phone: "(512) 396-9464", hours: "11am – 12am" },
   { id: "college-station", city: "College Station", name: "College Station", region: "Brazos Valley", address: "1730 University Dr E, College Station, TX", phone: "(979) 260-9464", hours: "11am – 12am", pickleball: true },
   { id: "killeen", city: "Killeen", name: "Killeen", region: "Central Texas", address: "2201 E Central Texas Expy, Killeen, TX", phone: "(254) 690-9464", hours: "11am – 11pm" },
