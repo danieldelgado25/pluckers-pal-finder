@@ -15,7 +15,7 @@ export function Footer() {
             Pluckers <span className="text-primary">Wing Bar</span>
           </p>
           <p className="mt-3 max-w-xs text-sm text-muted-foreground">{t("home.tagline")}</p>
-          <p className="mt-4 max-w-xs font-display text-2xl leading-tight text-brand-yellow">
+          <p className="mt-4 max-w-xs font-display text-2xl leading-tight text-foreground">
             {t("brand.slogan")}
           </p>
           <div className="mt-5 flex items-center gap-2">

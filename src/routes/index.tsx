@@ -48,8 +48,10 @@ function Index() {
             {t("home.hero.title")}
           </h1>
           <p className="mt-5 max-w-xl text-lg text-muted-foreground">{t("home.hero.sub")}</p>
-          <p className="mt-6 max-w-2xl border-l-4 border-brand-blue pl-4 font-display text-3xl leading-tight text-brand-yellow sm:text-4xl">
-            {t("brand.slogan")}
+          <p className="mt-6 max-w-2xl">
+            <span className="inline-block rounded-md bg-brand-yellow px-3 py-1.5 font-display text-2xl leading-tight text-brand-yellow-foreground sm:text-3xl">
+              {t("brand.slogan")}
+            </span>
           </p>
           <div id="order" className="mt-8 flex flex-wrap gap-3">
             <a
