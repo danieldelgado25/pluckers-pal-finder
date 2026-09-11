@@ -12,8 +12,11 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CateringRouteImport } from './routes/catering'
 import { Route as ClubRouteImport } from './routes/club'
+import { Route as FeedbackRouteImport } from './routes/feedback'
+import { Route as GiftCardsRouteImport } from './routes/gift-cards'
 import { Route as MenuRouteImport } from './routes/menu'
 import { Route as NewsRouteImport } from './routes/news'
+import { Route as StoryRouteImport } from './routes/story'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -30,6 +33,16 @@ const ClubRoute = ClubRouteImport.update({
   path: '/club',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FeedbackRoute = FeedbackRouteImport.update({
+  id: '/feedback',
+  path: '/feedback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GiftCardsRoute = GiftCardsRouteImport.update({
+  id: '/gift-cards',
+  path: '/gift-cards',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MenuRoute = MenuRouteImport.update({
   id: '/menu',
   path: '/menu',
@@ -40,43 +53,85 @@ const NewsRoute = NewsRouteImport.update({
   path: '/news',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StoryRoute = StoryRouteImport.update({
+  id: '/story',
+  path: '/story',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/catering': typeof CateringRoute
   '/club': typeof ClubRoute
+  '/feedback': typeof FeedbackRoute
+  '/gift-cards': typeof GiftCardsRoute
   '/menu': typeof MenuRoute
   '/news': typeof NewsRoute
+  '/story': typeof StoryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/catering': typeof CateringRoute
   '/club': typeof ClubRoute
+  '/feedback': typeof FeedbackRoute
+  '/gift-cards': typeof GiftCardsRoute
   '/menu': typeof MenuRoute
   '/news': typeof NewsRoute
+  '/story': typeof StoryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/catering': typeof CateringRoute
   '/club': typeof ClubRoute
+  '/feedback': typeof FeedbackRoute
+  '/gift-cards': typeof GiftCardsRoute
   '/menu': typeof MenuRoute
   '/news': typeof NewsRoute
+  '/story': typeof StoryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/catering' | '/club' | '/menu' | '/news'
+  fullPaths:
+    | '/'
+    | '/catering'
+    | '/club'
+    | '/feedback'
+    | '/gift-cards'
+    | '/menu'
+    | '/news'
+    | '/story'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/catering' | '/club' | '/menu' | '/news'
-  id: '__root__' | '/' | '/catering' | '/club' | '/menu' | '/news'
+  to:
+    | '/'
+    | '/catering'
+    | '/club'
+    | '/feedback'
+    | '/gift-cards'
+    | '/menu'
+    | '/news'
+    | '/story'
+  id:
+    | '__root__'
+    | '/'
+    | '/catering'
+    | '/club'
+    | '/feedback'
+    | '/gift-cards'
+    | '/menu'
+    | '/news'
+    | '/story'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CateringRoute: typeof CateringRoute
   ClubRoute: typeof ClubRoute
+  FeedbackRoute: typeof FeedbackRoute
+  GiftCardsRoute: typeof GiftCardsRoute
   MenuRoute: typeof MenuRoute
   NewsRoute: typeof NewsRoute
+  StoryRoute: typeof StoryRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -102,6 +157,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ClubRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/feedback': {
+      id: '/feedback'
+      path: '/feedback'
+      fullPath: '/feedback'
+      preLoaderRoute: typeof FeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gift-cards': {
+      id: '/gift-cards'
+      path: '/gift-cards'
+      fullPath: '/gift-cards'
+      preLoaderRoute: typeof GiftCardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/menu': {
       id: '/menu'
       path: '/menu'
@@ -116,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/story': {
+      id: '/story'
+      path: '/story'
+      fullPath: '/story'
+      preLoaderRoute: typeof StoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -123,8 +199,11 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CateringRoute: CateringRoute,
   ClubRoute: ClubRoute,
+  FeedbackRoute: FeedbackRoute,
+  GiftCardsRoute: GiftCardsRoute,
   MenuRoute: MenuRoute,
   NewsRoute: NewsRoute,
+  StoryRoute: StoryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
