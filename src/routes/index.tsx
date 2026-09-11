@@ -105,7 +105,7 @@ function Index() {
 
           <div>
             <h2 className="flex items-center gap-2 font-display text-4xl leading-none">
-              <HeartHandshake className="size-7 text-primary" />
+              <HeartHandshake className="size-7 text-brand-blue" />
               {t("home.giving.title")}
             </h2>
             <p className="mt-2 text-sm text-muted-foreground">{t("home.giving.sub")}</p>
@@ -146,7 +146,7 @@ function Index() {
           <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {dailySpecials.map((d) => (
               <li key={d.day} className="rounded-xl border border-border bg-card p-5">
-                <p className="text-xs font-bold tracking-widest uppercase text-primary">
+                <p className="text-xs font-bold tracking-widest uppercase text-brand-blue">
                   {lang === "es" ? d.dayEs : d.day}
                 </p>
                 <p className="mt-2 font-display text-xl leading-tight">
