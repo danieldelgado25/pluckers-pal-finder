@@ -117,7 +117,7 @@ export type NewsItem = {
 };
 
 export const news: NewsItem[] = [
-  { id: "n1", date: "2026-09-02", title: "Featured Sauce: Smoked Peach Habanero", titleEs: "Salsa destacada: Durazno Ahumado con Habanero", body: "Our sauce lab's late-summer drop is on the board through October.", bodyEs: "La creación de fin de verano de nuestro laboratorio de salsas estará hasta octubre.", kind: "current" },
+  { id: "n1", date: "NEWEST ADDITION", title: "Featured: Pickle Dust", titleEs: "Salsa destacada: Durazno Ahumado con Habanero", body: "Our latest dill delight dry-rub. Ask for it on your fries!", bodyEs: "La creación de fin de verano de nuestro laboratorio de salsas estará hasta octubre.", kind: "current" },
   { id: "n2", date: "2026-08-25", title: "Football season kickoff specials", titleEs: "Especiales de arranque de temporada", body: "Game day platters and reserved big-table seating are back at every location.", bodyEs: "Regresan los platones y las mesas grandes reservadas en todas las ubicaciones.", kind: "current" },
   { id: "n3", date: "2026-08-10", title: "Pickleball courts open in College Station", titleEs: "Canchas de pickleball abren en College Station", body: "Four courts, wing service to the sideline, leagues starting this fall.", bodyEs: "Cuatro canchas, servicio de alitas en la línea y ligas este otoño.", kind: "current" },
   { id: "g1", date: "2026-08-18", title: "$42,000 raised for local school athletics", titleEs: "$42,000 recaudados para deportes escolares", body: "Spirit nights across Texas funded gear and travel for 14 school programs.", bodyEs: "Las noches escolares en Texas financiaron equipo y viajes para 14 programas.", kind: "giving" },
