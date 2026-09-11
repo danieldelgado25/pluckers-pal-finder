@@ -23,6 +23,7 @@ const en: Dict = {
   "lang.es": "Español",
 
   "home.tagline": "Wings. Sauce. Game day. Since 1995.",
+  "brand.slogan": "If you don't like our wings, we'll give you the bird!",
   "home.hero.title": "Every wing deserves a better sauce",
   "home.hero.sub":
     "Hand-tossed wings, 20+ house sauces, and a table for the whole crew across Texas and Louisiana.",
@@ -145,6 +146,7 @@ const es: Dict = {
   "lang.es": "Español",
 
   "home.tagline": "Alitas. Salsa. Día de partido. Desde 1995.",
+  "brand.slogan": "Si no te gustan nuestras alitas, ¡te damos el pájaro!",
   "home.hero.title": "Cada alita merece una mejor salsa",
   "home.hero.sub":
     "Alitas hechas a mano, más de 20 salsas de la casa y mesa para todo el grupo en Texas y Luisiana.",

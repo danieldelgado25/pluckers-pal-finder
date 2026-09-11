@@ -111,6 +111,7 @@ function Index() {
                     {new Date(g.date).toLocaleDateString(lang === "es" ? "es-MX" : "en-US", {
                       month: "short",
                       year: "numeric",
+                      timeZone: "UTC",
                     })}
                   </p>
                   <h3 className="mt-1.5 font-display text-xl leading-tight">
