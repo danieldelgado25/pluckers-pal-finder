@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { LanguageToggle } from "./LanguageToggle";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Footer() {
   const { t } = useLang();
@@ -14,7 +15,13 @@ export function Footer() {
             Pluckers <span className="text-primary">Wing Bar</span>
           </p>
           <p className="mt-3 max-w-xs text-sm text-muted-foreground">{t("home.tagline")}</p>
-          <LanguageToggle className="mt-5" />
+          <p className="mt-4 max-w-xs font-display text-2xl leading-tight text-foreground">
+            {t("brand.slogan")}
+          </p>
+          <div className="mt-5 flex items-center gap-2">
+            <LanguageToggle />
+            <ThemeToggle />
+          </div>
         </div>
 
         <div>

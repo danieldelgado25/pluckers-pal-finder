@@ -48,6 +48,11 @@ function Index() {
             {t("home.hero.title")}
           </h1>
           <p className="mt-5 max-w-xl text-lg text-muted-foreground">{t("home.hero.sub")}</p>
+          <p className="mt-6 max-w-2xl">
+            <span className="inline-block rounded-md bg-brand-yellow px-3 py-1.5 font-display text-2xl leading-tight text-brand-yellow-foreground sm:text-3xl">
+              {t("brand.slogan")}
+            </span>
+          </p>
           <div id="order" className="mt-8 flex flex-wrap gap-3">
             <a
               href="https://www.pluckers.com/"
@@ -100,7 +105,7 @@ function Index() {
 
           <div>
             <h2 className="flex items-center gap-2 font-display text-4xl leading-none">
-              <HeartHandshake className="size-7 text-primary" />
+              <HeartHandshake className="size-7 text-brand-blue" />
               {t("home.giving.title")}
             </h2>
             <p className="mt-2 text-sm text-muted-foreground">{t("home.giving.sub")}</p>
@@ -111,6 +116,7 @@ function Index() {
                     {new Date(g.date).toLocaleDateString(lang === "es" ? "es-MX" : "en-US", {
                       month: "short",
                       year: "numeric",
+                      timeZone: "UTC",
                     })}
                   </p>
                   <h3 className="mt-1.5 font-display text-xl leading-tight">
@@ -140,7 +146,7 @@ function Index() {
           <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {dailySpecials.map((d) => (
               <li key={d.day} className="rounded-xl border border-border bg-card p-5">
-                <p className="text-xs font-bold tracking-widest uppercase text-primary">
+                <p className="text-xs font-bold tracking-widest uppercase text-brand-blue">
                   {lang === "es" ? d.dayEs : d.day}
                 </p>
                 <p className="mt-2 font-display text-xl leading-tight">

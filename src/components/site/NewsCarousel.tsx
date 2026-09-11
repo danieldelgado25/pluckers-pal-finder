@@ -31,6 +31,7 @@ export function NewsCarousel({ items }: { items: NewsItem[] }) {
           month: "long",
           day: "numeric",
           year: "numeric",
+          timeZone: "UTC",
         })}
       </p>
       <h3 className="mt-3 font-display text-3xl leading-tight sm:text-4xl">
