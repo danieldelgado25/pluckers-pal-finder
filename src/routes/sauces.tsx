@@ -31,9 +31,28 @@ const groups: SauceGroup[] = ["originals", "traditional", "rubs"];
 function SaucesPage() {
   const { t, lang } = useLang();
   const featured = sauces.filter((s) => s.group === "featured");
+  const [activeGroup, setActiveGroup] = React.useState<SauceGroup>("originals");
 
-  const jump = (id: string) =>
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveGroup(entry.target.id as SauceGroup);
+        }
+      },
+      { rootMargin: "-30% 0px -60% 0px" },
+    );
+    for (const g of groups) {
+      const el = document.getElementById(g);
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
+  }, []);
+
+  const jump = (id: string) => {
+    setActiveGroup(id as SauceGroup);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <>
