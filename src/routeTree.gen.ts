@@ -16,6 +16,7 @@ import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as GiftCardsRouteImport } from './routes/gift-cards'
 import { Route as MenuRouteImport } from './routes/menu'
 import { Route as NewsRouteImport } from './routes/news'
+import { Route as SaucesRouteImport } from './routes/sauces'
 import { Route as StoryRouteImport } from './routes/story'
 
 const IndexRoute = IndexRouteImport.update({
@@ -53,6 +54,11 @@ const NewsRoute = NewsRouteImport.update({
   path: '/news',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SaucesRoute = SaucesRouteImport.update({
+  id: '/sauces',
+  path: '/sauces',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StoryRoute = StoryRouteImport.update({
   id: '/story',
   path: '/story',
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/gift-cards': typeof GiftCardsRoute
   '/menu': typeof MenuRoute
   '/news': typeof NewsRoute
+  '/sauces': typeof SaucesRoute
   '/story': typeof StoryRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/gift-cards': typeof GiftCardsRoute
   '/menu': typeof MenuRoute
   '/news': typeof NewsRoute
+  '/sauces': typeof SaucesRoute
   '/story': typeof StoryRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/gift-cards': typeof GiftCardsRoute
   '/menu': typeof MenuRoute
   '/news': typeof NewsRoute
+  '/sauces': typeof SaucesRoute
   '/story': typeof StoryRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/gift-cards'
     | '/menu'
     | '/news'
+    | '/sauces'
     | '/story'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/gift-cards'
     | '/menu'
     | '/news'
+    | '/sauces'
     | '/story'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/gift-cards'
     | '/menu'
     | '/news'
+    | '/sauces'
     | '/story'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   GiftCardsRoute: typeof GiftCardsRoute
   MenuRoute: typeof MenuRoute
   NewsRoute: typeof NewsRoute
+  SaucesRoute: typeof SaucesRoute
   StoryRoute: typeof StoryRoute
 }
 
@@ -185,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sauces': {
+      id: '/sauces'
+      path: '/sauces'
+      fullPath: '/sauces'
+      preLoaderRoute: typeof SaucesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/story': {
       id: '/story'
       path: '/story'
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   GiftCardsRoute: GiftCardsRoute,
   MenuRoute: MenuRoute,
   NewsRoute: NewsRoute,
+  SaucesRoute: SaucesRoute,
   StoryRoute: StoryRoute,
 }
 export const routeTree = rootRouteImport
