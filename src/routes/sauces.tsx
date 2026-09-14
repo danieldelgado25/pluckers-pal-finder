@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import { PageHeader } from "@/components/site/PageHeader";
 import { HeatLevel } from "@/components/site/HeatLevel";
 import { sauces, menuNotes, type SauceGroup } from "@/lib/data";
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/sauces")({
   component: SaucesPage,
 });
 
-const groups: SauceGroup[] = ["marks", "daves", "seans", "originals", "traditional", "rubs"];
+const groups: SauceGroup[] = ["originals", "traditional", "rubs"];
 
 function SaucesPage() {
   const { t, lang } = useLang();
@@ -107,7 +107,20 @@ function SaucesPage() {
               </h2>
               <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {list.map((s) => (
-                  <li key={s.id} className="rounded-xl border border-border bg-card p-5">
+                  <li
+                    key={s.id}
+                    className={
+                      s.founderPick
+                        ? "relative overflow-hidden rounded-xl border-2 border-brand-yellow bg-card p-5 shadow-sm"
+                        : "rounded-xl border border-border bg-card p-5"
+                    }
+                  >
+                    {s.founderPick && (
+                      <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-brand-yellow px-2.5 py-1 text-xs font-bold uppercase text-brand-yellow-foreground">
+                        <Star className="size-3.5 fill-current" aria-hidden />
+                        {t("sauce.founderPick").replace("{name}", s.founderPick)}
+                      </div>
+                    )}
                     <div className="flex items-start justify-between gap-3">
                       <h3 className="font-display text-xl leading-tight">
                         {lang === "es" ? s.nameEs : s.name}

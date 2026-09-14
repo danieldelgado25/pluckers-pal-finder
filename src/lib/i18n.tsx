@@ -62,6 +62,10 @@ const en: Dict = {
   "menu.allergen.body":
     "Allergen and nutrition information is maintained per item and reviewed quarterly. Items marked with an asterisk contain a common allergen.",
   "menu.caution": "Contains a common allergen — ask your server for details.",
+  "menu.wings.choose": "Choose your wing count",
+  "menu.wings.combo": "Make it a combo",
+  "menu.wings.comboIncludes": "Add waffle fries, tater tots, or chips",
+  "menu.wings.more": "More ways to wing it",
 
   "cat.pregame": "Pregame",
   "cat.entrees": "Entrées",
@@ -95,6 +99,7 @@ const en: Dict = {
   "sauce.traditional": "Traditional Flavors",
   "sauce.rubs": "Dry Rubs",
   "sauce.dryRub": "Dry rub",
+  "sauce.founderPick": "{name}'s Pick",
 
   "club.title": "Pluckers Club",
   "club.sub": "One card. Every visit counts.",
@@ -204,6 +209,10 @@ const es: Dict = {
   "menu.allergen.body":
     "La información de alérgenos y nutrición se mantiene por platillo y se revisa cada trimestre. Los platillos con asterisco contienen un alérgeno común.",
   "menu.caution": "Contiene un alérgeno común — pregunta a tu mesero.",
+  "menu.wings.choose": "Elige cuántas alitas quieres",
+  "menu.wings.combo": "Hazlo combo",
+  "menu.wings.comboIncludes": "Agrega papas waffle, tots o papas caseras",
+  "menu.wings.more": "Más formas de disfrutar alitas",
 
   "cat.pregame": "Entradas",
   "cat.entrees": "Platos fuertes",
@@ -237,6 +246,7 @@ const es: Dict = {
   "sauce.traditional": "Sabores tradicionales",
   "sauce.rubs": "Sazones secos",
   "sauce.dryRub": "Sazón seco",
+  "sauce.founderPick": "Elección de {name}",
 
   "club.title": "Club Pluckers",
   "club.sub": "Una tarjeta. Cada visita cuenta.",
