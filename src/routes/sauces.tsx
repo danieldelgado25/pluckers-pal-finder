@@ -1,3 +1,4 @@
+import * as React from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Star } from "lucide-react";
 import { PageHeader } from "@/components/site/PageHeader";
