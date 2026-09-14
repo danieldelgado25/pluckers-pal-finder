@@ -42,8 +42,26 @@ const drinkGroups = ["cocktails", "margaritas", "draft", "cans", "wine"] as cons
 function MenuPage() {
   const { t, lang } = useLang();
   const [tab, setTab] = React.useState<EntreeType>("wings");
+  const [activeSection, setActiveSection] = React.useState<Category>("pregame");
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveSection(entry.target.id as Category);
+        }
+      },
+      { rootMargin: "-30% 0px -60% 0px" },
+    );
+    for (const s of sections) {
+      const el = document.getElementById(s);
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
+  }, []);
 
   const jump = (id: string) => {
+    setActiveSection(id as Category);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
@@ -67,14 +85,20 @@ function MenuPage() {
               key={s}
               type="button"
               onClick={() => jump(s)}
-              className="shrink-0 rounded-full border border-border px-4 py-1.5 text-sm font-bold transition-colors hover:border-primary hover:text-primary"
+              aria-current={activeSection === s}
+              className={cn(
+                "shrink-0 rounded-full border px-4 py-1.5 text-sm font-bold transition-colors",
+                activeSection === s
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border hover:border-primary hover:text-primary",
+              )}
             >
               {t(`cat.${s}`)}
             </button>
           ))}
           <Link
             to="/sauces"
-            className="shrink-0 rounded-full bg-primary px-4 py-1.5 text-sm font-bold text-primary-foreground"
+            className="shrink-0 rounded-full border border-border px-4 py-1.5 text-sm font-bold transition-colors hover:border-primary hover:text-primary"
           >
             {t("nav.sauces")}
           </Link>

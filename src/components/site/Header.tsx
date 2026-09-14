@@ -94,7 +94,9 @@ export function Header() {
             </Link>
           ))}
           <div className="mt-3 flex items-center justify-between gap-3">
-            <LanguageToggle />
+            <div onClick={() => setOpen(false)}>
+              <LanguageToggle />
+            </div>
             <Link
               to="/"
               hash="order"

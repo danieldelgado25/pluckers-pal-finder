@@ -1,9 +1,11 @@
+import * as React from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Star } from "lucide-react";
 import { PageHeader } from "@/components/site/PageHeader";
 import { HeatLevel } from "@/components/site/HeatLevel";
 import { sauces, menuNotes, type SauceGroup } from "@/lib/data";
 import { useLang } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/sauces")({
   head: () => ({
@@ -31,9 +33,28 @@ const groups: SauceGroup[] = ["originals", "traditional", "rubs"];
 function SaucesPage() {
   const { t, lang } = useLang();
   const featured = sauces.filter((s) => s.group === "featured");
+  const [activeGroup, setActiveGroup] = React.useState<SauceGroup>("originals");
 
-  const jump = (id: string) =>
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveGroup(entry.target.id as SauceGroup);
+        }
+      },
+      { rootMargin: "-30% 0px -60% 0px" },
+    );
+    for (const g of groups) {
+      const el = document.getElementById(g);
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
+  }, []);
+
+  const jump = (id: string) => {
+    setActiveGroup(id as SauceGroup);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <>
@@ -49,14 +70,20 @@ function SaucesPage() {
               key={g}
               type="button"
               onClick={() => jump(g)}
-              className="shrink-0 rounded-full border border-border px-4 py-1.5 text-sm font-bold transition-colors hover:border-primary hover:text-primary"
+              aria-current={activeGroup === g}
+              className={cn(
+                "shrink-0 rounded-full border px-4 py-1.5 text-sm font-bold transition-colors",
+                activeGroup === g
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border hover:border-primary hover:text-primary",
+              )}
             >
               {t(`sauce.${g}`)}
             </button>
           ))}
           <Link
             to="/menu"
-            className="shrink-0 rounded-full bg-primary px-4 py-1.5 text-sm font-bold text-primary-foreground"
+            className="shrink-0 rounded-full border border-border px-4 py-1.5 text-sm font-bold transition-colors hover:border-primary hover:text-primary"
           >
             {t("nav.menu")}
           </Link>
