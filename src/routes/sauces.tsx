@@ -69,14 +69,20 @@ function SaucesPage() {
               key={g}
               type="button"
               onClick={() => jump(g)}
-              className="shrink-0 rounded-full border border-border px-4 py-1.5 text-sm font-bold transition-colors hover:border-primary hover:text-primary"
+              aria-current={activeGroup === g}
+              className={cn(
+                "shrink-0 rounded-full border px-4 py-1.5 text-sm font-bold transition-colors",
+                activeGroup === g
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border hover:border-primary hover:text-primary",
+              )}
             >
               {t(`sauce.${g}`)}
             </button>
           ))}
           <Link
             to="/menu"
-            className="shrink-0 rounded-full bg-primary px-4 py-1.5 text-sm font-bold text-primary-foreground"
+            className="shrink-0 rounded-full border border-border px-4 py-1.5 text-sm font-bold transition-colors hover:border-primary hover:text-primary"
           >
             {t("nav.menu")}
           </Link>
