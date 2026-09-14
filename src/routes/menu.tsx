@@ -42,8 +42,26 @@ const drinkGroups = ["cocktails", "margaritas", "draft", "cans", "wine"] as cons
 function MenuPage() {
   const { t, lang } = useLang();
   const [tab, setTab] = React.useState<EntreeType>("wings");
+  const [activeSection, setActiveSection] = React.useState<Category>("pregame");
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveSection(entry.target.id as Category);
+        }
+      },
+      { rootMargin: "-30% 0px -60% 0px" },
+    );
+    for (const s of sections) {
+      const el = document.getElementById(s);
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
+  }, []);
 
   const jump = (id: string) => {
+    setActiveSection(id as Category);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
