@@ -9,6 +9,7 @@ import logoAsset from "@/assets/pluckers-logo.png.asset.json";
 
 const links = [
   { to: "/menu", key: "nav.menu" },
+  { to: "/sauces", key: "nav.sauces" },
   { to: "/club", key: "nav.club" },
   { to: "/catering", key: "nav.catering" },
   { to: "/news", key: "nav.news" },
