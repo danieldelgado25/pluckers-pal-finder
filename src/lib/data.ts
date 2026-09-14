@@ -27,9 +27,6 @@ export const locations: Loc[] = [
 
 export type SauceGroup =
   | "featured"
-  | "marks"
-  | "daves"
-  | "seans"
   | "originals"
   | "traditional"
   | "rubs";
@@ -43,6 +40,7 @@ export type Sauce = {
   /** 0 – 5 flames */
   heat: 0 | 1 | 2 | 3 | 4 | 5;
   group: SauceGroup;
+  founderPick?: "Mark" | "Dave" | "Sean";
   dryRub?: boolean;
   note?: string;
   noteEs?: string;
@@ -62,14 +60,14 @@ export const sauces: Sauce[] = [
     noteEs: "Tiempo limitado. Hasta agotar existencias.",
   },
 
-  { id: "bakers-gold", name: "Baker's Gold", nameEs: "Baker's Gold", desc: "This original flavor has become a Pluckers treasure. Bold BBQ flavor with golden mustard and enough heat to still pack a punch.", descEs: "Un sabor original que ya es tesoro de Pluckers. BBQ intenso con mostaza dorada y el picor justo.", heat: 2, group: "marks" },
-  { id: "honey-bbq", name: "Honey BBQ", nameEs: "BBQ con Miel", desc: "Taste the sweet, not the heat.", descEs: "Puro dulce, sin picor.", heat: 0, group: "marks" },
+  { id: "bakers-gold", name: "Baker's Gold", nameEs: "Baker's Gold", desc: "This original flavor has become a Pluckers treasure. Bold BBQ flavor with golden mustard and enough heat to still pack a punch.", descEs: "Un sabor original que ya es tesoro de Pluckers. BBQ intenso con mostaza dorada y el picor justo.", heat: 2, group: "originals", founderPick: "Mark" },
+  { id: "honey-bbq", name: "Honey BBQ", nameEs: "BBQ con Miel", desc: "Taste the sweet, not the heat.", descEs: "Puro dulce, sin picor.", heat: 0, group: "originals", founderPick: "Mark" },
 
-  { id: "maple-chipotle", name: "Maple Chipotle", nameEs: "Maple con Chipotle", desc: "A sweet, syrupy glaze with a smoky chipotle kick.", descEs: "Glaseado dulce tipo miel de maple con toque ahumado de chipotle.", heat: 1, group: "daves" },
-  { id: "manganero", name: "Manganero", nameEs: "Manganero", desc: "Mango sweetness up front. Habanero heat in the back. This glaze is a tropical rollercoaster.", descEs: "Dulzura de mango al frente y habanero al final. Una montaña rusa tropical.", heat: 3, group: "daves" },
+  { id: "maple-chipotle", name: "Maple Chipotle", nameEs: "Maple con Chipotle", desc: "A sweet, syrupy glaze with a smoky chipotle kick.", descEs: "Glaseado dulce tipo miel de maple con toque ahumado de chipotle.", heat: 1, group: "originals", founderPick: "Dave" },
+  { id: "manganero", name: "Manganero", nameEs: "Manganero", desc: "Mango sweetness up front. Habanero heat in the back. This glaze is a tropical rollercoaster.", descEs: "Dulzura de mango al frente y habanero al final. Una montaña rusa tropical.", heat: 3, group: "originals", founderPick: "Dave" },
 
-  { id: "spicy-lemon-pepper", name: "Spicy Lemon Pepper", nameEs: "Limón con Pimienta Picante", desc: "Our Medium and Lemon Pepper combined.", descEs: "Nuestra Medium y Limón con Pimienta combinadas.", heat: 2, group: "seans", dryRub: true },
-  { id: "spicy-ranch", name: "Spicy Ranch", nameEs: "Ranch Picante", desc: "A kicked up version of our Ranch dry rub.", descEs: "Versión con más carácter de nuestro sazón Ranch.", heat: 2, group: "seans", dryRub: true },
+  { id: "spicy-lemon-pepper", name: "Spicy Lemon Pepper", nameEs: "Limón con Pimienta Picante", desc: "Our Medium and Lemon Pepper combined.", descEs: "Nuestra Medium y Limón con Pimienta combinadas.", heat: 2, group: "rubs", founderPick: "Sean", dryRub: true },
+  { id: "spicy-ranch", name: "Spicy Ranch", nameEs: "Ranch Picante", desc: "A kicked up version of our Ranch dry rub.", descEs: "Versión con más carácter de nuestro sazón Ranch.", heat: 2, group: "rubs", founderPick: "Sean", dryRub: true },
 
   { id: "raspberry-chipotle", name: "Raspberry Chipotle", nameEs: "Frambuesa con Chipotle", desc: "A bold blend of ripe raspberries and smoky chipotle peppers for a slow-building heat.", descEs: "Mezcla intensa de frambuesa madura y chipotle ahumado con picor que sube poco a poco.", heat: 3, group: "originals" },
   { id: "vampire-killer", name: "Vampire Killer", nameEs: "Vampire Killer", desc: "The heat from this spicy garlic sauce is strong enough to wake the undead.", descEs: "El picor de esta salsa de ajo despierta hasta a los muertos.", heat: 3, group: "originals" },

@@ -115,7 +115,11 @@ function MenuPage() {
 
           <p className="mb-6 text-sm text-muted-foreground">{menuNotes.baskets[lang]}</p>
 
-          <ItemGrid ids="entrees" type={tab} lang={lang} t={t} />
+          {tab === "wings" ? (
+            <WingMenu lang={lang} t={t} />
+          ) : (
+            <ItemGrid ids="entrees" type={tab} lang={lang} t={t} />
+          )}
 
           {tab === "wings" && (
             <p className="mt-6 rounded-lg border border-border bg-secondary/50 p-4 text-sm text-muted-foreground">
@@ -275,5 +279,89 @@ function ItemGrid({
         );
       })}
     </ul>
+  );
+}
+
+function WingMenu({
+  lang,
+  t,
+}: {
+  lang: "en" | "es";
+  t: (k: string) => string;
+}) {
+  const wingItems = menu.filter((item) => item.category === "entrees" && item.type === "wings");
+  const sizes = [5, 10, 15].map((count) => ({
+    count,
+    base: wingItems.find((item) => item.id === `wings-${count}`),
+    combo: wingItems.find((item) => item.id === `wing-combo-${count}`),
+  }));
+  const extras = wingItems.filter(
+    (item) => !sizes.some(({ base, combo }) => item.id === base?.id || item.id === combo?.id),
+  );
+
+  return (
+    <div className="space-y-8">
+      <div>
+        <h3 className="mb-4 font-display text-2xl leading-none">{t("menu.wings.choose")}</h3>
+        <ul className="grid gap-4 md:grid-cols-3">
+          {sizes.map(({ count, base, combo }) => {
+            if (!base || !combo) return null;
+            return (
+              <li key={count} className="overflow-hidden rounded-lg border border-border bg-card">
+                <div className="p-5">
+                  <div className="flex items-start justify-between gap-4">
+                    <h4 className="font-display text-3xl leading-none">
+                      {lang === "es" ? base.nameEs : base.name}
+                    </h4>
+                    <span className="shrink-0 font-bold text-primary">{base.price}</span>
+                  </div>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    {lang === "es" ? base.descEs : base.desc}
+                  </p>
+                </div>
+                <div className="border-t border-brand-yellow bg-brand-yellow/15 p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="font-display text-xl leading-none text-foreground">
+                      {t("menu.wings.combo")}
+                    </span>
+                    <span className="font-bold text-primary">{combo.price}</span>
+                  </div>
+                  <p className="mt-1 text-xs font-semibold text-muted-foreground">
+                    {t("menu.wings.comboIncludes")}
+                  </p>
+                  {combo.calories && (
+                    <p className="mt-2 text-xs italic text-muted-foreground">{combo.calories}</p>
+                  )}
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      <div>
+        <h3 className="mb-4 font-display text-2xl leading-none">{t("menu.wings.more")}</h3>
+        <ul className="grid gap-6 sm:grid-cols-2">
+          {extras.map((item) => (
+            <li key={item.id} className="border-b border-border pb-4 last:border-0">
+              <div className="flex items-baseline justify-between gap-4">
+                <h4 className="font-display text-xl leading-tight">
+                  {lang === "es" ? item.nameEs : item.name}
+                </h4>
+                {item.price && (
+                  <span className="shrink-0 text-sm font-bold text-primary">{item.price}</span>
+                )}
+              </div>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {lang === "es" ? item.descEs : item.desc}
+              </p>
+              {item.calories && (
+                <p className="mt-2 text-xs italic text-muted-foreground">{item.calories}</p>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }
