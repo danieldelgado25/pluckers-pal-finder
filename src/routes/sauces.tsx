@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { HeatLevel } from "@/components/site/HeatLevel";
 import { sauces, menuNotes, type SauceGroup } from "@/lib/data";
 import { useLang } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/sauces")({
   head: () => ({
